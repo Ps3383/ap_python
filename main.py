@@ -26,22 +26,31 @@ class Book:
         else:
             raise ValueError("ISBN must have 8 digits !")    
     
-
-
+ 
+    @staticmethod
+    def find_book(isbn):
+        return sql.serach_book(isbn)
 
 
     @staticmethod
     def list_of_books():
         return sql.find_all_books()
 
+    @staticmethod
+    def delete_book(isbn):
+        return sql.delete(isbn)
+
     @classmethod
-    def book_number(cls):
-        return Book.number_of_books 
-
-
-
+    def book_number_you_add(cls):
+        return str(cls.number_of_books )
 
     def __del__():
          pass
     
+# try:
+#       book1 = Book(12345678 , "f", "d", 5, 100)
+#     # book2 = Book(12345679 , "ff", "dd", 55, 1000)
+#     # book3 = Book(12345670 , "fff", "ddd", 555, 10000)
+# except(ValueError):
+#     print("ISBN must have 8 digits !")
 
