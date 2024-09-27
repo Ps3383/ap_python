@@ -44,8 +44,8 @@ class Book:
     def book_number_you_add(cls):
         return str(cls.number_of_books )
 
-    def __del__():
-         pass
+    # def __del__():
+    #      pass
     
 # try:
 #       book1 = Book(12345678 , "f", "d", 5, 100)
