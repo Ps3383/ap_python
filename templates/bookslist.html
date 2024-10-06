@@ -19,15 +19,17 @@
       <th>Price</th>
       <th>Pages</th>
     </tr>
-    {%for car in allcars %}
+    {%for book in allbooks %}
     <tr>
-      <td>{{car[0]}}</td>
-      <td>{{car[1]}}</td>
-      <td>{{car[2]}}</td>
-      <td>{{car[3]}}</td>
-      <td>{{car[4]}}</td>
+      <td>{{book[0]}}</td>
+      <td>{{book[1]}}</td>
+      <td>{{book[2]}}</td>
+      <td>{{book[3]}}</td>
+      <td>{{book[4]}}</td>
     </tr>
     {% endfor %}
   </table> 
   <a href="/deletebook" class="btn-primary" style="margin: 50px;">Delete Book</a>
+  <a href="/findbook" class="btn-primary" style="margin: 50px;">Find Book</a>
+
 {% endblock %}

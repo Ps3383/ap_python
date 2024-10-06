@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <main class="container signup-section">
+    <div class="section-content">
+      <h2>Find a Book </h2>
+
+      <form method="POST">
+
+        <div class="form-group">
+          <label>ISBN :</label>
+          <input type=text name=isbn placeholder="ISBN" />
+        </div>        
+          <input type="submit" value="Find Book" class="btn-primary"/>
+
+        
+      </form>
+    </div>
+    
+    <style>
+        table, th , td  {
+          border:1px solid rgb(0, 3, 180);
+          margin: 50px;
+         text-align: center;
+        }
+        </style>
+      
+      <table style="width:60%">
+        
+          <tr>
+            <th>ISBN</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Pages</th>
+          </tr>
+          {%if mybook %}
+          <tr>
+            <td>{{mybook[0]}}</td>
+            <td>{{mybook[1]}}</td>
+            <td>{{mybook[2]}}</td>
+            <td>{{mybook[3]}}</td>
+            <td>{{mybook[4]}}</td>
+          </tr>
+          {% endif %}
+        </table> 
+  </main>
+{% endblock %}

@@ -21,7 +21,7 @@ class Book:
         return self._isbn
     @ISBN.setter
     def ISBN(self , val):
-        if len(str(val))==8:
+        if len(str(val))==8 and type(val) == int:
             self._isbn = val
         else:
             raise ValueError("ISBN must have 8 digits !")    

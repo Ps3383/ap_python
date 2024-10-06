@@ -1,7 +1,10 @@
 import sqlite3
 from sys import path
 
-database = sqlite3.connect(path[0]+"/books_db.db")
+class BookNotFound(Exception):
+    pass
+
+database = sqlite3.connect(path[0]+"/books_db.db",check_same_thread=False)
 cursor = database.cursor()
 
 def create_table():
@@ -22,7 +25,7 @@ def serach_book(ISBN):
     abook=()
     abook= cursor.execute("SELECT * FROM books_table WHERE ISBN==?",[ISBN]).fetchone()
     if abook is None:
-       return ("This book with this isbn does not exists!")
+       raise BookNotFound("book not")
     else:
         return abook  
 
@@ -36,7 +39,7 @@ def delete(ISBN):
     abook=()
     abook= cursor.execute("SELECT * FROM books_table WHERE ISBN==?",[ISBN]).fetchone()
     if abook is None:
-        return("This book with this isbn does not exists!")
+        raise BookNotFound("book not")
     else:
         cursor.execute("DELETE FROM books_table WHERE ISBN==?",[ISBN])
         database.commit()
