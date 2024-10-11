@@ -12,20 +12,18 @@ def create_table():
                    ,title TEXT,author TEXT,price FLOAT,pages INTEGER)")
     
 def insert_book(ISBN , title , author , price , pages):
-    try:
+    # try:
         cursor.execute("INSERT INTO books_table VALUES(?,?,?,?,?)"\
                     ,(ISBN , title , author , price , pages)) 
         database.commit() 
-    except(sqlite3.IntegrityError): 
-        print("ISBN is a UNIQE number !")    
-
-
+    # except(sqlite3.IntegrityError): 
+    #     print("ISBN is a UNIQE number !")    
 
 def serach_book(ISBN):
     abook=()
     abook= cursor.execute("SELECT * FROM books_table WHERE ISBN==?",[ISBN]).fetchone()
     if abook is None:
-       raise BookNotFound("book not")
+       raise BookNotFound("book not found")
     else:
         return abook  
 
@@ -33,13 +31,11 @@ def serach_book(ISBN):
 def find_all_books():
     return list(cursor.execute("SELECT * FROM books_table"))
 
-
-    
 def delete(ISBN):
     abook=()
     abook= cursor.execute("SELECT * FROM books_table WHERE ISBN==?",[ISBN]).fetchone()
     if abook is None:
-        raise BookNotFound("book not")
+        raise BookNotFound("book not found")
     else:
         cursor.execute("DELETE FROM books_table WHERE ISBN==?",[ISBN])
         database.commit()

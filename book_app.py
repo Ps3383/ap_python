@@ -3,7 +3,8 @@ import books_sqlite as sql
 
 class Book:
     """
-    HELLO
+    This class is for managing books
+    such as add , delete and find them from database.
     """
     number_of_books = 0
 
@@ -44,13 +45,5 @@ class Book:
     def book_number_you_add(cls):
         return str(cls.number_of_books )
 
-    # def __del__():
-    #      pass
     
-# try:
-#       book1 = Book(12345678 , "f", "d", 5, 100)
-#     # book2 = Book(12345679 , "ff", "dd", 55, 1000)
-#     # book3 = Book(12345670 , "fff", "ddd", 555, 10000)
-# except(ValueError):
-#     print("ISBN must have 8 digits !")
 
